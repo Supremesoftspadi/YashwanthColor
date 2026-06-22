@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import "tailwindcss";
+
+
+:root {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;  
+}
+
+/* body {
+  max-width: 1280px; 
+  margin: 0 auto;
+  padding: 1rem;
+} */
+
+
+html{
+  font-size: 16px;
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  * {
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  .print-area {
+    width: 210mm;
+    min-height: 297mm;
+    border: 1px;
+    padding: 5mm;
+    font-size: 12px;
+    color: black;
+    background: white;
+    page-break-inside: avoid;
+  }
+
+  /* Hide everything except .print-area */
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  /* Table row control: 20 rows per page */
+  .print-area table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .print-area table tr {
+    page-break-inside: avoid;
+    height: 30px; /* Adjust if needed */
+  }
+
+  .print-area table th,
+  .print-area table td {
+    padding: 4px;
+    font-size: 11px;
+  }
+}
