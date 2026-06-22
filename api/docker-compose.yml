@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  yshapi:
+    build: .                       # Dockerfile at project root
+    container_name: yashwanth_api
+    env_file: .env
+    volumes:
+      - .:/app                     # Mount entire project
+      # - static_volume:/app/static
+      # - media_volume:/app/media
+      - /srv/yashwanth/api/static:/app/static
+      - /srv/yashwanth/api/media:/app/media
+    networks:
+      - web
+    restart: always
+    command: /app/entrypoint.sh    # Your existing entrypoint
+
+volumes:
+  static_volume:
+  media_volume:
+
+networks:
+  web:
+    external: true
